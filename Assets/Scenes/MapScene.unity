@@ -709,7 +709,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1176362809}
-  _cameraFollow: {fileID: 0}
 --- !u!114 &234181021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,7 +716,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234181014}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9af7404aa5d5dcf4ba9c17fe8ee69fad, type: 3}
   m_Name: 
