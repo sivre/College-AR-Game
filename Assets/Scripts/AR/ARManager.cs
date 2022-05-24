@@ -6,8 +6,8 @@ using Niantic.ARDK.Utilities;
 
 public class ARManager : MonoBehaviour
 {
-    [SerializeField] GameObject _ballPrefab;
     [SerializeField] Camera _mainCamera;
+    [SerializeField] BallSystem _ballSystem;
     IARSession _ARsession;
 
     void Start(){
@@ -21,23 +21,12 @@ public class ARManager : MonoBehaviour
 
         var touch = PlatformAgnosticInput.GetTouch(0);
         if(touch.phase == TouchPhase.Began){
-            ShootBall(touch);
+            _ballSystem.ShootBall(touch);
         }
     }
 
     void OnSessionInitialized(AnyARSessionInitializedArgs args){
         ARSessionFactory.SessionInitialized -= OnSessionInitialized;
         _ARsession = args.Session;
-    }
-
-    void ShootBall(Touch touch){
-        GameObject newBall = Instantiate(_ballPrefab);
-        newBall.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
-        newBall.transform.position = _mainCamera.transform.position + _mainCamera.transform.forward;
-
-        Rigidbody rb = newBall.GetComponent<Rigidbody>();
-        rb.velocity = new Vector3(0f, 0f, 0f);
-        float force = 300f;
-        rb.AddForce(_mainCamera.transform.forward * force);
     }
 }

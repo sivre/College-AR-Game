@@ -4,18 +4,6 @@ using UnityEngine;
 
 public class Paint : MonoBehaviour
 {
-    public static Paint Instance { get; private set; }
-
-    private void Awake(){
-        if(Instance != null && Instance != this){
-            Destroy(this);
-        }
-        else{
-            Instance = this;
-        }
-    }
-
-
     [SerializeField] InsideOf _insideOf;
     [SerializeField] Color _color;
 
